@@ -32,13 +32,36 @@ public class ActionPanelAdmissao implements ActionListener{
 			
 			switch (e1.getActionCommand()) {
 			case "Admissão":
+				jan.setTitle("Admissão");
 				jan.getPanelAdmissao().setVisible(true);
 				jan.getPanel().setVisible(false);
+				jan.getPanelAlta().setVisible(false);
+				jan.getPanelListaInternados().setVisible(false);
+				jan.getPanelMedicamentos().setVisible(false);
+				jan.getPanelPrescrever().setVisible(false);
 				break;
 			case "Cancelar":
 				jan.limpaTelaAdmissao();
 				break;
 			case "Salvar":
+				
+				prof.setNome(jan.getFieldNomeAdmissao().getText());
+				prof.setCpf(jan.getFieldCpfAdmissao().getText());
+				prof.setDataNasc(jan.getFieldDataNascAdmissao().getText());
+				
+				if(jan.getCheckBoxDipironaAlergia().isSelected()) {
+					
+				}
+				
+				if(!Profissional.isCPF(prof.getCpf())) 
+				{
+					System.out.println("CPF inválido!");
+				}
+				else  
+				{
+					System.out.println("CPF válido\n");
+					System.out.println(prof);
+				}
 				System.out.println("funcionou");
 				
 			//case "Salvar":
